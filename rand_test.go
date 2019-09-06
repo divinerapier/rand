@@ -8,13 +8,14 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"internal/testenv"
 	"io"
 	"math"
 	"os"
 	"runtime"
 	"testing"
 	"testing/iotest"
+
+	"github.com/divinerapier/rand/internal/testenv"
 )
 
 const (
