@@ -99,3 +99,16 @@ func TestLockedConcurrent(t *testing.T) {
 		}(i)
 	}
 }
+
+func TestLockedSameAsStd(t *testing.T) {
+	lockedR := NewLocked(1)
+	simpleR := New(NewSource(1))
+	for i := 0; i < 100000; i++ {
+		a := lockedR.Int63()
+		b := simpleR.Int63()
+		c := rand.Int63()
+		if a != b || a != c {
+			t.Errorf("index: %d, a: %d, b: %d, c: %d", i, a, b, c)
+		}
+	}
+}
